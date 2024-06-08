@@ -44,7 +44,7 @@ public class GamePanel extends JPanel {
         healingIcon = new ImageIcon(new ImageIcon("img/potion.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         poisonIcon = new ImageIcon(new ImageIcon("img/poison2.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         herbIcon = new ImageIcon(new ImageIcon("img/herbs.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
-        backgroundImage = new ImageIcon(new ImageIcon("img/background.png").getImage().getScaledInstance(600, 400, Image.SCALE_SMOOTH));
+        backgroundImage = new ImageIcon(new ImageIcon("img/background.png").getImage().getScaledInstance(625, 450, Image.SCALE_SMOOTH));
 
         // Создание фона с изображением
         JPanel backgroundPanel = new JPanel() {
@@ -55,7 +55,7 @@ public class GamePanel extends JPanel {
             }
         };
         backgroundPanel.setLayout(null);
-        backgroundPanel.setBounds(0, 0, 600, 400);
+        backgroundPanel.setBounds(0, 0, 625, 450);
         add(backgroundPanel);
 
         // Создание метки для предмета
@@ -81,7 +81,7 @@ public class GamePanel extends JPanel {
         // Создание верхней панели для счета, времени, серии, жизней и кнопки возврата в меню
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new GridLayout(1, 5)); // Обновлено до 5 столбцов
-        topPanel.setBounds(0, 0, 600, 50);
+        topPanel.setBounds(0, 0, 625, 50);
         backgroundPanel.add(topPanel);
 
         scoreLabel = new JLabel("Счет: 0");

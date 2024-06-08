@@ -9,7 +9,7 @@ public class SortingGame extends JFrame {
 
     public SortingGame() {
         setTitle("Sorting Game");
-        setSize(600, 400);
+        setSize(625, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         cardLayout = new CardLayout();
