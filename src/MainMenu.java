@@ -10,10 +10,10 @@ public class MainMenu extends JPanel {
         this.sortingGame = sortingGame;
         setLayout(new GridBagLayout());
 
-        JLabel titleLabel = new JLabel("Sorting Game");
+        JLabel titleLabel = new JLabel("Игра в сортировку");
         titleLabel.setFont(new Font("Serif", Font.BOLD, 36));
 
-        JButton startButton = new JButton("Start Game");
+        JButton startButton = new JButton("Начать  игру");
         startButton.setFont(new Font("Serif", Font.BOLD, 24));
         startButton.addActionListener(new ActionListener() {
             @Override
@@ -22,7 +22,7 @@ public class MainMenu extends JPanel {
             }
         });
 
-        JButton exitButton = new JButton("Exit");
+        JButton exitButton = new JButton("Выход");
         exitButton.setFont(new Font("Serif", Font.BOLD, 24));
         exitButton.addActionListener(new ActionListener() {
             @Override

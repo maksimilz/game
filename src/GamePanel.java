@@ -34,19 +34,19 @@ public class GamePanel extends JPanel {
         this.sortingGame = sortingGame;
         setLayout(null);
 
-        // Initialize variables
+        // Инициализация переменных
         score = 0;
         streak = 0;
         lives = 3;
         timeElapsed = 0;
 
-        // Load images
+        // Загрузка изображений
         healingIcon = new ImageIcon(new ImageIcon("img/potion.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         poisonIcon = new ImageIcon(new ImageIcon("img/poison2.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         herbIcon = new ImageIcon(new ImageIcon("img/herbs.png").getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         backgroundImage = new ImageIcon(new ImageIcon("img/background.png").getImage().getScaledInstance(600, 400, Image.SCALE_SMOOTH));
 
-        // Create background panel with image
+        // Создание фона с изображением
         JPanel backgroundPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -58,53 +58,53 @@ public class GamePanel extends JPanel {
         backgroundPanel.setBounds(0, 0, 600, 400);
         add(backgroundPanel);
 
-        // Create item label
+        // Создание метки для предмета
         itemLabel = new JLabel();
         itemLabel.setSize(100, 100);
         itemLabel.setHorizontalAlignment(SwingConstants.CENTER);
         itemLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         backgroundPanel.add(itemLabel);
 
-        // Create shelf buttons
-        healingShelfButton = new JButton("Healing Shelf");
+        // Создание кнопок для полок
+        healingShelfButton = new JButton("Полка с лечебными зельями");
         healingShelfButton.setBounds(50, 300, 150, 50);
         backgroundPanel.add(healingShelfButton);
 
-        poisonShelfButton = new JButton("Poison Shelf");
+        poisonShelfButton = new JButton("Полка с ядами");
         poisonShelfButton.setBounds(250, 300, 150, 50);
         backgroundPanel.add(poisonShelfButton);
 
-        herbShelfButton = new JButton("Herb Shelf");
+        herbShelfButton = new JButton("Полка с травами");
         herbShelfButton.setBounds(450, 300, 150, 50);
         backgroundPanel.add(herbShelfButton);
 
-        // Create top panel for score, time, streak, lives, and return to menu button
+        // Создание верхней панели для счета, времени, серии, жизней и кнопки возврата в меню
         JPanel topPanel = new JPanel();
-        topPanel.setLayout(new GridLayout(1, 5)); // Updated to 5 columns
+        topPanel.setLayout(new GridLayout(1, 5)); // Обновлено до 5 столбцов
         topPanel.setBounds(0, 0, 600, 50);
         backgroundPanel.add(topPanel);
 
-        scoreLabel = new JLabel("Score: 0");
+        scoreLabel = new JLabel("Счет: 0");
         scoreLabel.setFont(new Font("Serif", Font.BOLD, 20));
         topPanel.add(scoreLabel);
 
-        timeLabel = new JLabel("Time: 0");
+        timeLabel = new JLabel("Время: 0");
         timeLabel.setFont(new Font("Serif", Font.BOLD, 20));
         topPanel.add(timeLabel);
 
-        streakLabel = new JLabel("Streak: 0");
+        streakLabel = new JLabel("Серия: 0");
         streakLabel.setFont(new Font("Serif", Font.BOLD, 20));
         topPanel.add(streakLabel);
 
-        livesLabel = new JLabel("Lives: 3");
+        livesLabel = new JLabel("Жизни: 3");
         livesLabel.setFont(new Font("Serif", Font.BOLD, 20));
         topPanel.add(livesLabel);
 
-        returnToMenuButton = new JButton("Return to Menu");
+        returnToMenuButton = new JButton("Вернуться в меню");
         returnToMenuButton.setFont(new Font("Serif", Font.BOLD, 20));
         topPanel.add(returnToMenuButton);
 
-        // Add action listener for return to menu button
+        // Добавление слушателя действий для кнопки возврата в меню
         returnToMenuButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -112,7 +112,7 @@ public class GamePanel extends JPanel {
             }
         });
 
-        // Add mouse listeners for dragging items
+        // Добавление слушателей мыши для перетаскивания предметов
         backgroundPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -141,7 +141,7 @@ public class GamePanel extends JPanel {
             }
         });
 
-        // Start timer to update time
+        // Запуск таймера для обновления времени
         timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -166,18 +166,18 @@ public class GamePanel extends JPanel {
 
     private void randomizeItem() {
         Random rand = new Random();
-        int itemType = rand.nextInt(3); // 0 - Healing, 1 - Poison, 2 - Herb
+        int itemType = rand.nextInt(3); // 0 - Лечебное, 1 - Яд, 2 - Трава
         switch (itemType) {
             case 0:
-                currentItem = "Healing Potion";
+                currentItem = "Лечебное зелье";
                 currentItemIcon = healingIcon;
                 break;
             case 1:
-                currentItem = "Poison";
+                currentItem = "Яд";
                 currentItemIcon = poisonIcon;
                 break;
             case 2:
-                currentItem = "Herb";
+                currentItem = "Трава";
                 currentItemIcon = herbIcon;
                 break;
         }
@@ -193,36 +193,36 @@ public class GamePanel extends JPanel {
         Rectangle herbShelfBounds = herbShelfButton.getBounds();
         Rectangle itemBounds = itemLabel.getBounds();
 
-        if (currentItem.equals("Healing Potion") && healingShelfBounds.intersects(itemBounds)) {
-            JOptionPane.showMessageDialog(this, "Correctly placed on Healing Shelf!");
+        if (currentItem.equals("Лечебное зелье") && healingShelfBounds.intersects(itemBounds)) {
+            JOptionPane.showMessageDialog(this, "Вы верно разместили предмет на полке с лечебными зельями!");
             score++;
             streak++;
             updateScore();
             updateStreak();
             randomizeItem();
-        } else if (currentItem.equals("Poison") && poisonShelfBounds.intersects(itemBounds)) {
-            JOptionPane.showMessageDialog(this, "Correctly placed on Poison Shelf!");
+        } else if (currentItem.equals("Яд") && poisonShelfBounds.intersects(itemBounds)) {
+            JOptionPane.showMessageDialog(this, "Вы верно разместили предмет на полке с ядами!");
             score++;
             streak++;
             updateScore();
             updateStreak();
             randomizeItem();
-        } else if (currentItem.equals("Herb") && herbShelfBounds.intersects(itemBounds)) {
-            JOptionPane.showMessageDialog(this, "Correctly placed on Herb Shelf!");
+        } else if (currentItem.equals("Трава") && herbShelfBounds.intersects(itemBounds)) {
+            JOptionPane.showMessageDialog(this, "Вы верно разместили предмет на полке с травой!");
             score++;
             streak++;
             updateScore();
             updateStreak();
             randomizeItem();
         } else {
-            JOptionPane.showMessageDialog(this, "Incorrect placement. Try again.");
+            JOptionPane.showMessageDialog(this, "Неверное размещение. Попробуйте еще раз.");
             streak = 0;
             lives--;
             updateStreak();
             updateLives();
             if (lives <= 0) {
                 timer.stop();
-                JOptionPane.showMessageDialog(this, "Game Over! Your final score is: " + score);
+                JOptionPane.showMessageDialog(this, "Игра окончена! Ваш итоговый счет: " + score);
                 sortingGame.showMainMenu();
             }
             itemX = getWidth() / 2 - itemLabel.getWidth() / 2;
@@ -232,18 +232,18 @@ public class GamePanel extends JPanel {
     }
 
     private void updateScore() {
-        scoreLabel.setText("Score: " + score);
+        scoreLabel.setText("Счет: " + score);
     }
 
     private void updateTime() {
-        timeLabel.setText("Time: " + timeElapsed);
+        timeLabel.setText("Время: " + timeElapsed);
     }
 
     private void updateStreak() {
-        streakLabel.setText("Streak: " + streak);
+        streakLabel.setText("Серия: " + streak);
     }
 
     private void updateLives() {
-        livesLabel.setText("Lives: " + lives);
+        livesLabel.setText("Жизни: " + lives);
     }
 }
