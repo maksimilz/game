@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/manifest.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/EventHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/GameManager.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/GamePanel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/MainMenu.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/SortingGame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/UIManager.java" charset="UTF-8" />
+  </component>
+</project>
